@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if list %}
+        <ul>
+            {% for item in list %} 
+            <li><a href="{% url path id=item.id %}">{{ item }}</a></li>
+            {% endfor %}
+        </ul>
+    {% elif item %}
+        <table>
+
+        
+        {% for elem, val in item.items %}
+            <tr>
+                <td>{{ elem }}</td>
+                <td>{{ val }}</td>
+            </tr>
+            
+            
+        {% endfor %}
+
+    </table>
+    {% else %}
+        <p>Not available</p>        
+    {% endif %}
+{% endblock content %}
